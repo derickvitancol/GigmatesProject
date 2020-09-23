@@ -71,6 +71,26 @@ h4 {
     text-align: center;
 }
 
+h5 {
+    color:white;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0px;
+    overflow: visible;
+    padding: 0px;
+    text-align: center;
+}
+
+h6 {
+    color: white;
+    font-size: 15px;
+    font-weight: normal;
+    margin: 0px;
+    overflow: visible;
+    padding: 0px;
+    text-align: center;
+}
+
 ul{
     list-style-type: none;
     margin: 0;
@@ -125,4 +145,12 @@ li a{
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+.name{
+    float:left;
+    margin-top: 0 !important;
+}
 
+name2 {
+    float: left;
+    margin-top: -20px;
+}
