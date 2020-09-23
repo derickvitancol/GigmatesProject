@@ -17,32 +17,9 @@
     <title>Gigmates</title>
 </head>
 <body>
-    <!-- Navbar for DESKTOP ONLY -->
-    <div class="navbar navbar-expand-md navbar-dark bg-dark d-none d-md-block nbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="images/logo.png" />
-            </a>
-            <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarContents">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarContents">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../www/index.html" rel="external">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">FAQ</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+   
     <!-- Content part -->
-    <div class="container-fluid d-inline-block mainpart d-flex flex-column justify-content-center align-items-center">
+    <form class="container-fluid d-inline-block mainpart d-flex flex-column justify-content-center align-items-center" action="mainpage.html">
         <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
             <img class="d-md-none" src="images/logo.png" />
             <h1 class="h1 d-none d-md-block">
@@ -69,14 +46,8 @@
         <div class="container w-100 d-none d-md-block">
             <div>ABOUT</div>
         </div>
-    </div>
-    <!-- Footer (for desktop ONLY) -->
-    <div class="footer p-2 bg-dark footstyle d-inline-block">
-        <div class="container-fluid p-2">
-            Hello
-        </div>
-    </div>
-
+    </form>
+  
     <script type="text/javascript" src="scripts/jQuery/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="scripts/popper.min.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
@@ -103,20 +74,8 @@
                 
                 alert("Account Details: " + userDetails.Firstname + " " + userDetails.Lastname);
                 if (userDetails) {
-                    localStorage.setItem("Firstname", userDetails.Firstname);
-                    localStorage.setItem("Lastname", userDetails.Lastname);
 
-                    localStorage.setItem("Firstname", userDetails.Firstname);
-                    localStorage.setItem("Lastname", userDetails.Lastname);
-                    localStorage.setItem("Username", userDetails.Username);
-                    localStorage.setItem("Password", userDetails.Password);
-                    localStorage.setItem("Age", userDetails.Age);
-                    localStorage.setItem("Rate", userDetails.Rate);
-                    localStorage.setItem("Bio", userDetails.Bio);
-                    localStorage.setItem("Gender", userDetails.Gender);
-                    localStorage.setItem("Location", userDetails.Location);
-                    localStorage.setItem("ID", userDetails.ID);
-                    localStorage.setItem("Type", userDetails.Type);
+                    localStorage.setItem("userDetails", JSON.stringify(userDetails));
                     window.close = "index.html";
                     setTimeout(function () { document.location.href = "mainpage.html", 500 });  
                 }

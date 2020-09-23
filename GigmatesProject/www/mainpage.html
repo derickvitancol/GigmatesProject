@@ -13,7 +13,7 @@
 
     <title>Gigmates</title>
 </head>
-<body style="background-color: rgb(100, 100, 128);">
+<body style="background-color: rgb(100, 100, 128);" onload="getUserData()">
     <!--MAIN PAGE-->
     <div data-role="page" id="MainPage">
         <div role="main" class="ui-content">
@@ -174,21 +174,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <style>
 
         .vertical-menu {
@@ -290,6 +275,17 @@
     <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.js"></script>
     <script type="text/javascript" src="scripts/homepage.js"></script>
+
+    <script>
+        function getUserData()
+        {
+
+            var personInfo = JSON.parse(localStorage.getItem("userDetails"))
+
+            alert(personInfo.Firstname + " " + personInfo.Lastname)
+        }
+
+    </script>
 
 </body>
 </html>
