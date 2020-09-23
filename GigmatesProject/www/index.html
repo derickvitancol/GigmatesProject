@@ -86,24 +86,47 @@
 
         function LoginClicked()
         {
-            var uName = $("#usernameBox").val();
-            var pWord = $("#passwordBox").val();
-            $.ajax({
+            var uName = document.getElementById("usernameBox").value;
+            var pWord = document.getElementById("passwordBox").value;
+            var userDetails = { "personLog": {Username:uName,Password:pWord} };
+            var xhr = $.ajax({
 
                 type: "POST",
-                url: "http://localhost:51320/Service1.svc/Login",
+                url: "http://localhost/GigmatesService/Service1.svc/Login",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                data: JSON.stringify({ username: uName, password:pWord  })
+                data: JSON.stringify(userDetails)
 
             }).done(function (data) {
-                var personDetails = data.LoginResult;
-                console.log(personDetails);
-                alert("Account Details: " + personDetails.Firstname + " " + personDetails.Lastname);
+                alert(data.LoginResult);
+                userDetails = JSON.parse(data.LoginResult);
+                
+                alert("Account Details: " + userDetails.Firstname + " " + userDetails.Lastname);
+                if (userDetails) {
+                    localStorage.setItem("Firstname", userDetails.Firstname);
+                    localStorage.setItem("Lastname", userDetails.Lastname);
 
+                    localStorage.setItem("Firstname", userDetails.Firstname);
+                    localStorage.setItem("Lastname", userDetails.Lastname);
+                    localStorage.setItem("Username", userDetails.Username);
+                    localStorage.setItem("Password", userDetails.Password);
+                    localStorage.setItem("Age", userDetails.Age);
+                    localStorage.setItem("Rate", userDetails.Rate);
+                    localStorage.setItem("Bio", userDetails.Bio);
+                    localStorage.setItem("Gender", userDetails.Gender);
+                    localStorage.setItem("Location", userDetails.Location);
+                    localStorage.setItem("ID", userDetails.ID);
+                    localStorage.setItem("Type", userDetails.Type);
+                    window.close = "index.html";
+                    setTimeout(function () { document.location.href = "mainpage.html", 500 });  
+                }
+                else
+                {
+                    alert("Entered DAta is incorrect!");
+                }
 
-                }).fail(function (prob) {
-                    alert(prob);
+                }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.status + ' ' + textStatus + ' ' + errorThrown.message)
                 });
 
         }
