@@ -108,8 +108,6 @@
         </div>
     </div>
 
-
-
     <!--NOTIFICATION
     <div data-role="page" id="Notif" data-dialog="true">
         <div role="main" class="ui-content">
@@ -280,7 +278,7 @@
         function getUserData()
         {
 
-            var personInfo = JSON.parse(localStorage.getItem("userDetails"))
+            var personInfo = JSON.parse(window.sessionStorage.getItem("userDetails"))
 
             alert(personInfo.Firstname + " " + personInfo.Lastname)
         }

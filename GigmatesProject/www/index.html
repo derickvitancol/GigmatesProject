@@ -19,7 +19,7 @@
 <body>
    
     <!-- Content part -->
-    <form class="container-fluid d-inline-block mainpart d-flex flex-column justify-content-center align-items-center" action="mainpage.html">
+    <div class="container-fluid d-inline-block mainpart d-flex flex-column justify-content-center align-items-center">
         <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
             <img class="d-md-none" src="images/logo.png" />
             <h1 class="h1 d-none d-md-block">
@@ -46,7 +46,7 @@
         <div class="container w-100 d-none d-md-block">
             <div>ABOUT</div>
         </div>
-    </form>
+    </div>
   
     <script type="text/javascript" src="scripts/jQuery/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="scripts/popper.min.js"></script>
@@ -75,9 +75,11 @@
                 alert("Account Details: " + userDetails.Firstname + " " + userDetails.Lastname);
                 if (userDetails) {
 
-                    localStorage.setItem("userDetails", JSON.stringify(userDetails));
+                    window.sessionStorage.setItem("userDetails", JSON.stringify(userDetails));
+                    setTimeout(function () { document.location.href = "mainpage.html", 500 }); 
                     window.close = "index.html";
-                    setTimeout(function () { document.location.href = "mainpage.html", 500 });  
+                    
+                    
                 }
                 else
                 {
@@ -92,7 +94,9 @@
 
         function SignupClicked()
         {
-            window.location.href = "signup.html";
+            window.close = "index.html";
+            setTimeout(function () { document.location.href = "signup.html", 500 }); 
+
         }
     </script>
 
