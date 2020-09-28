@@ -1,8 +1,15 @@
 ﻿<!DOCTYPE html>
 <html>
 
-<head>   
+<head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' * data: gap: https://ssl.gstatic.com http://localhost:51320/Service1.svc/* 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; script-src 'self' 'unsafe-inline'">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -10,10 +17,16 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/homepage.css" />
     <link rel="stylesheet" type="text/css" href="css/items.css" />
+    <!--Recently Added-->
+    <!--<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" data-main="scripts/startup" src="lib/require.2.1.8.js" async></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
 
     <title>Gigmates</title>
 </head>
-<body style="background-color: rgb(100, 100, 128);" onload="getProfileData()">
+<body style="background-color: rgb(100, 100, 128);">
+
+
 
     <!--MAIN PAGE-->
     <div data-role="page" id="MainPage">
@@ -22,47 +35,49 @@
                 <!--Profile INFO-->
                 <div class="grid-container">
                     <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <div class="col-sm-6">
-                                <center>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <div class="col-sm-6">
+                                    <!--<img src="http://placehold.it/70x70" alt="" class="img-rounded img-responsive name" />-->
+                                    <center>
 
-                                    <label><h6 id="nameLabel">Fname+Lname</h6></label>
+                                        <label><h6>Fname+Lname</h6></label>
+                                        <br />
+                                        <label><h5>@username</h5></label>
+                                        <br />
+                                        <label><h5>Type</h5></label>
+                                    </center>
+                                </div>
+                                <div class="col-sm-3">
+                                    <center>
+                                        <label><h5>--ratings--</h5></label>
+                                    </center>
+                                </div>
+                                <div class="caption">
+                                    <label><h4>Age</h4></label>
                                     <br />
-                                    <label><h5 id="usernameLabel">@username</h5></label>
+                                    <label><h4>Gender</h4></label>
                                     <br />
-                                </center>
+                                    <label><h4>Location</h4></label>
+                                    <br />
+                                    <label><h4>Bio</h4></label>
+                                    <br />
+
+                                    <p class="float-right"><a href="#" class="btn btn-primary" role="button">Edit Profile</a></p>
+
+                                </div>
                             </div>
-                            <div class="col-sm-3">
-                                <center>
-                                    <label><h5 id="ratingsLabel">--ratings--</h5></label>
-                                </center>
-                            </div>
-                            <div class="caption">                            
-                                <label><h4 id="ageLabel">Age</h4></label>
-                                <br />
-                                <label><h4 id="genderLabel">Gender</h4></label>
-                                <br />
-                                <label><h4 id="locationLabel">Location</h4></label>
-                                <br />
-                                <label><h4 id="bioLabel">Bio</h4></label>
-                                <br />
-                                
-                                 <p class="float-right"><a href="#" class="btn btn-primary" role="button">Edit Profile</a></p>
-                                
-                            </div>
-                        </div>
                         </div>
                     </div>
                 </div>
 
-                
+
 
                 <!--TOP NAV-->
                 <div class="topnav" id="myTopnav">
                     <center>
-                        <a href="prof.html" class="active">Songs</a>
-                        <a href="pgigs.html">Gigs</a>
+                        <a href="prof.html">Songs</a>
+                        <a href="pgigs.html" class="active">Gigs</a>
                         <a href="phistory.html">History</a>
 
 
@@ -98,33 +113,27 @@
                         <div class="thumbnail">
                             <div class="caption">
                                 <center>
-                                    <label><h1>Name of Song</h1></label>
+                                    <label><h1>Name of Gig</h1></label>
                                 </center>
                                 <br />
-                                <label><h4>Genre of Music</h4></label>
+                                <label><h4>Venue</h4></label>
                                 <br />
-                                <label><h4>Description</h4></label>
+                                <label><h4>Schedule</h4></label>
                                 <br />
 
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--Create Gig-->
-                <div>
-                    <br>
-                    <center>
-                        <button>
-                            Add Song
-                        </button>
-                    </center>
-                </div>
-                <br />
+                </div>         
             </div>
-            </div>
+        </div>
     </div>
 
-        
+
+
+
+
+
     <style>
 
         .vertical-menu {
@@ -166,71 +175,18 @@
             grid-row: 1;
         }
 
-
         .item2 {
             grid-column: 2 / span 3;
             grid-row: 1;
         }
     </style>
-
-
-    <script type="text/javascript" src="scripts/jQuery/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="scripts/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="scripts/popper.min.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.js"></script>
     <script type="text/javascript" src="scripts/homepage.js"></script>
-
-    <script>
-
-
-        function getProfileData()
-        {
-            var userDetails = JSON.parse(window.sessionStorage.getItem("userDetails"));
-
-            document.getElementById("nameLabel").innerHTML = userDetails.Firstname + " " + userDetails.Lastname;
-            document.getElementById("usernameLabel").innerHTML = userDetails.Username;
-            document.getElementById("genderLabel").innerHTML = determineGenderName(userDetails.Gender);
-            document.getElementById("typeLabel").innerHTML = determineTypeName(userDetails.Type);
-            document.getElementById("ratings    Label").innerHTML = userDetails.Rate;
-            document.getElementById("ageLabel").innerHTML = userDetails.Age;
-            document.getElementById("locationLabel").innerHTML = userDetails.Location;
-        }
-
-        function determineGenderName(genderID)
-        {
-            var genderName;
-
-            if (genderID == "1")
-            {
-                genderName = "Male";
-            }
-            else if (genderID == "2")
-            {
-                genderName = "Female";
-            }
-
-            return genderName
-        }
-
-
-        function determineTypeName(typeID)
-        {
-            var userTypeName;
-
-            if (typeID == "1")
-            {
-                userTypeName = "Musician";
-            }
-            else
-            {
-                userTypeName = "Creator";
-            }
-
-            return userTypeName;
-        }
-
-
-    </script>
-
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
 </body>
 </html>
