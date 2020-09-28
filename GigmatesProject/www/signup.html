@@ -68,16 +68,16 @@
             
             <label for="gender">Gender</label>
             <select name="gender" id="GenderBox">
-                <option value="1">Male</option>
-                <option value="2">Female</option>
+                <option value=1>Male</option>
+                <option value=2>Female</option>
             </select>
            
            <br />
 
             <label for="UserTypebox" style="color:white;">Account Type</label>
             <select name="usertype" id="UserTypebox">
-                <option value="1">Musician</option>
-                <option value="2">yung isa pa</option>
+                <option value=1>Musician</option>
+                <option value=2>yung isa pa</option>
             </select>
             <br />
             <br />
@@ -93,44 +93,47 @@
         </center>
     </div>
 
-    <!-- Footer (for desktop ONLY) -->
-    <!--<div class="container-fluid footer p-2 bg-dark footstyle d-inline-block">
-        Hello
-    </div>-->
 
     <script type="text/javascript" src="scripts/jQuery/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="scripts/popper.min.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.js"></script>
 
-
-    <!--<script type="text/javascript" src="scripts/index.js"></script>-->
     <script>
         function RegisterClicked() {
+            var firstname = document.getElementById("FirstnameBox").value;
+            var lastname = document.getElementById("LastnameBox").value;
+            var username = document.getElementById("UsernameBox").value;
+            var password = document.getElementById("PasswordBox").value;
+            var location = document.getElementById("LocationBox").value;
+            var age = document.getElementById("AgeBox").value;
+            var gender = document.getElementById("GenderBox").value;
+            var type = document.getElementById("UserTypebox").value;
+
 
             var personJSON = {
                 "newPerson": {
-                    Firstname: "Derick",
-                    Lastname: "Vitancol",
-                    Username: "derwil",
-                    Password: "123456",Location:"Cavite City",
-                    Age: 12,
-                    Type: 1,
-                    Gender: 1
+                    Firstname: firstname,
+                    Lastname: lastname,
+                    Username: username,
+                    Password: password, Location: location,
+                    Age: age,
+                    Type: type,
+                    Gender: gender
                 }};
             var val;
             var prob;
             $.ajax({
                 type: "POST",
-                url: "http://localhost:51320/Service1.svc/Register",
+                url: "http://localhost/GigmatesService/Service1.svc/Register",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 data:JSON.stringify(personJSON)
             }).done(function (data) {
                 alert(JSON.stringify(data.RegisterResult) + " is result");
-                console.log(datadata.RegisterResult);
                 alert("registered");
                 val = data.RegisterResult;
+                
             }).fail(function (prob) {
                 console.log(prob);
                 alert(prob);
