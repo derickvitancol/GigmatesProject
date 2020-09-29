@@ -13,7 +13,7 @@
 
     <title>Gigmates</title>
 </head>
-<body style="background-color: rgb(100, 100, 128);" onload="getUserData()">
+<body style="background-color: rgb(100, 100, 128);" onload="mainloadingFunctions()">
     <!--MAIN PAGE-->
     <div data-role="page" id="MainPage">
         <div role="main" class="ui-content">
@@ -40,16 +40,8 @@
 
                 <br />
 
-                <div include="form-input-select()">
-                    <select required>
-                        <!--
-                          This is how we can do "placeholder" options.
-                          note: "required" attribute is on the select
-                        -->
-                        <option value=""
-                                hidden>
-                            Genre of Music
-                        </option>          
+                <div>
+                    <select id="genreSelect">
                     </select>
                 </div>
 
@@ -273,17 +265,6 @@
     <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.js"></script>
     <script type="text/javascript" src="scripts/homepage.js"></script>
-
-    <script>
-        function getUserData()
-        {
-
-            var personInfo = JSON.parse(window.sessionStorage.getItem("userDetails"))
-
-            alert(personInfo.Firstname + " " + personInfo.Lastname)
-        }
-
-    </script>
-
+    <script type="text/javascript" src="scripts/functions.js"></script>
 </body>
 </html>

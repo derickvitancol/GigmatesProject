@@ -31,6 +31,8 @@
                                     <br />
                                     <label><h5 id="usernameLabel">@username</h5></label>
                                     <br />
+                                    <label><h5 id="passwordLabel">password</h5></label>
+                                    <br />
                                 </center>
                             </div>
                             <div class="col-sm-3">
@@ -185,10 +187,11 @@
 
         function getProfileData()
         {
-            var userDetails = JSON.parse(window.sessionStorage.getItem("userDetails"));
+            var userDetails = JSON.parse(window.localStorage.getItem("userDetails"));
 
             document.getElementById("nameLabel").innerHTML = userDetails.Firstname + " " + userDetails.Lastname;
             document.getElementById("usernameLabel").innerHTML = userDetails.Username;
+            document.getElementById("passwordLabel").innerHTML = userDetails.Password;
             document.getElementById("genderLabel").innerHTML = determineGenderName(userDetails.Gender);
             document.getElementById("typeLabel").innerHTML = determineTypeName(userDetails.Type);
             document.getElementById("ratings    Label").innerHTML = userDetails.Rate;

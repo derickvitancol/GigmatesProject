@@ -73,9 +73,9 @@
                 userDetails = JSON.parse(data.LoginResult);
                 
                 alert("Account Details: " + userDetails.Firstname + " " + userDetails.Lastname);
-                if (userDetails) {
+                if (userDetails.Firstname && userDetails.Lastname) {
 
-                    window.sessionStorage.setItem("userDetails", JSON.stringify(userDetails));
+                    window.localStorage.setItem("userDetails", JSON.stringify(userDetails));
                     setTimeout(function () { document.location.href = "mainpage.html", 500 }); 
                     window.close = "index.html";
                     
@@ -83,7 +83,7 @@
                 }
                 else
                 {
-                    alert("Entered DAta is incorrect!");
+                    alert("Entered Data is incorrect!");
                 }
 
                 }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
@@ -91,6 +91,9 @@
                 });
 
         }
+
+
+
 
         function SignupClicked()
         {
