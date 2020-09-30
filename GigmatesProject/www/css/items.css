@@ -54,6 +54,10 @@ p[class=float-right] {
 }
 
 
+a[id=addS] {
+    padding: 15px 32px;
+    margin-bottom: 100px;
+}
 
 /*FOR EDIT PROFILE*/
 input[id=nameLabel] {
@@ -198,7 +202,7 @@ button {
     display: inline-block;
     font-size: 16px;
     border-radius: 12px;
-    "
+    
 }
 
 /*BUTTON*/
