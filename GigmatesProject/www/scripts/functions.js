@@ -1,4 +1,6 @@
-﻿//FUNCTION TO GET THE USER DATA
+﻿/* THIS FILE CONTAINS THE FUNCTIONS THAT ARE USED IN DIFFERENT PAGES */
+
+//FUNCTION TO GET THE USER DATA FROM LOGIN
 function getUserData() {
     var personInfo = JSON.parse(window.localStorage.getItem("userDetails"))
 }
@@ -32,8 +34,22 @@ function getGenres() {
         });
 }
 
-//FUNCTION CALLED ON MAINPAGE ONLOAD
-function mainloadingFunctions() {
-    getUserData();
-    getGenres();
+
+//CHECKS IF THE STRING HAS A NUMBER
+function hasNumber(testStr)
+{
+    return /\d/.test(testStr);
+}
+
+//CHECKS IF A STRING HAS SPECIAL CHARS  
+function hasSpecialChar(testStr)
+{
+    var reg = new RegExp("(!|@|#|$ |%|\^|&|\*|\(|\)");
+    return reg.test(testStr)
+}
+
+function hasLetter(testStr)
+{
+    var reg = new RegExp("\D");
+    return reg.test(testStr);
 }

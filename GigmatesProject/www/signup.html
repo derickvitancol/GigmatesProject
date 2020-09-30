@@ -86,7 +86,7 @@
                 <br />
                 <br />
               
-                <button class="btn btn-dark col-xs-12 col-sm-12 col-md-4 col-lg-3 border-0" onclick="CancelClicked()">Cancel</button>
+                <button class="btn btn-dark col-xs-12 col-sm-12 col-md-4 col-lg-3 border-0" onclick="CancelSignupClicked()">Cancel</button>
 
                 <!--<input type="button" class="btn btn-dark col-xs-12 col-sm-12 col-md-4 col-lg-3" onclick="CancelClicked()" placeholder="Cancel" />-->
         
@@ -98,8 +98,9 @@
     <script type="text/javascript" src="scripts/popper.min.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.js"></script>
-
     <script>
+        /*FUNCTIONS FOR SIGNUP PAGE*/
+        //FUNCTION TO REGISTER A NEW USER - NEEDS CHECKING OF INPUT
         function RegisterClicked() {
             var firstname = document.getElementById("FirstnameBox").value;
             var lastname = document.getElementById("LastnameBox").value;
@@ -111,46 +112,58 @@
             var type = document.getElementById("UserTypebox").value;
 
 
-            var personJSON = {
-                "newPerson": {
-                    Firstname: firstname,
-                    Lastname: lastname,
-                    Username: username,
-                    Password: password, Location: location,
-                    Age: age,
-                    Type: type,
-                    Gender: gender
-                }
-            };
+            if (firstname && !hasNumber(firstname) && !hasSpecialChar(firstname) && lastname && !hasNumber(lastname) && !hasSpecialChar(lastname) && username && password && location
+                && !hasNumber(location) && age && !hasLetter(age) && gender && type)
+            {
+                var personJSON = {
+                    "newPerson": {
+                        Firstname: firstname,
+                        Lastname: lastname,
+                        Username: username,
+                        Password: password,
+                        Location: location,
+                        Age: age,
+                        Type: type,
+                        Gender: gender
+                    }
+                };
 
-            var val;
-            var prob;
-            $.ajax({
-                type: "POST",
-                url: "http://localhost/GigmatesService/Service1.svc/Register",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                data:JSON.stringify(personJSON)
-            }).done(function (data) {
-                alert(JSON.stringify(data.RegisterResult) + " is result");
-                alert("registered");
-                val = data.RegisterResult;
-                
-            }).fail(function (prob) {
-                console.log(prob);
-                alert(prob);
-                val = prob;
-            });
+                var val;
+                var prob;
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost/GigmatesService/Service1.svc/Register",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify(personJSON)
+                }).done(function (data) {
+                    alert(JSON.stringify(data.RegisterResult) + " is result");
+                    alert("registered");
+                    val = data.RegisterResult;
+
+                    CancelSignupClicked();
+                }).fail(function (prob) {
+                    console.log(prob);
+                    alert(prob);
+                    val = prob;
+                });
+
+            }
+            else
+            {
+                alert("Please make sure all boxes have correct inputs");
+            }
+
+            
         }
 
-        function CancelClicked()
+        //FUNCTION TO RETURN TO LOGIN PAGE ON SIGN UP
+        function CancelSignupClicked()
         {
+
+            window.close = "signup.html";
             window.location.href = 'index.html';
         }
-
-
-      
     </script>
-
 </body>
 </html>
