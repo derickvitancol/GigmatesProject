@@ -46,9 +46,110 @@ input[type=number]:focus {
     height: 100%;
 }
 
+p[class=float-right] {
+    width: 100px;
+    text-align:center;
+    
+    text-decoration: none;
+}
+
+
+
+/*FOR EDIT PROFILE*/
+input[id=nameLabel] {
+    background-color: transparent;
+    color: #FFFFFF;
+    border-bottom-width: medium;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: lightgray;
+    border-top: hidden;
+    border-left: hidden;
+    border-right: hidden;
+    height: 10px;
+}
+
+input[id=nameLabel]::placeholder {    
+        text-align: center;
+} 
+
+input[id=usernameLabel] {
+    background-color: transparent;
+    color: #FFFFFF;
+    border-bottom-width: medium;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: lightgray;
+    border-top: hidden;
+    border-left: hidden;
+    border-right: hidden;
+    height: 10px;
+}
+
+input[id=usernameLabel]::placeholder {
+        text-align: center;
+} 
+
+input[id=passwordLabel] {
+    background-color: transparent;
+    color: #FFFFFF;
+    border-bottom-width: medium;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: lightgray;
+    border-top: hidden;
+    border-left: hidden;
+    border-right: hidden;
+    height: 10px;
+}
+
+input[id=passwordLabel]::placeholder {
+    text-align: center;
+} 
+
+input[id=ageLabel] {
+    background-color: transparent;
+    color: #FFFFFF;
+    border-bottom-width: medium;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: lightgray;
+    border-top: hidden;
+    border-left: hidden;
+    border-right: hidden;
+    height: 12px;
+}
+
+
+input[id=locationLabel] {
+    background-color: transparent;
+    color: #FFFFFF;
+    border-bottom-width: medium;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: lightgray;
+    border-top: hidden;
+    border-left: hidden;
+    border-right: hidden;
+    height: 10px;
+}
+
+input[id=bioLabel] {
+    background-color: transparent;
+    color: #FFFFFF;
+    border-bottom-width: medium;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: lightgray;
+    border-top: hidden;
+    border-left: hidden;
+    border-right: hidden;
+    height: 10px;
+}
+
+
 /*ITEM STYLE IF OPENED IN DESKTOP*/
-@media only screen and (min-width:768px)
-{
+@media only screen and (min-width:768px) {
     .footstyle {
         border-top:solid;
         border-top-color: lightgray;
