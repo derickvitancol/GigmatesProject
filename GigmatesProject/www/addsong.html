@@ -138,13 +138,18 @@
         function loadingFunctions()
         {
             getGenres(document.getElementById("genreSelect"));
+            personJSON = JSON.parse(window.localStorage.getItem("userDetails"));
 
+            
+            document.getElementById("mArtistBox").value = personJSON.Username;
         }
 
         function AddSong() {
+
+            personJSON = JSON.parse(window.localStorage.getItem("userDetails"));
             var songName = document.getElementById("nSongBox").value;
             var genderID = document.getElementById("genreSelect").value;
-            var mainArtist = document.getElementById("mArtistBox").value;
+            var mainArtist = personJSON.ID;
             var featuredArtist = document.getElementById("cArtistBox").value;
             var description = document.getElementById("descBox").value;
 
@@ -169,7 +174,8 @@
                 alert(data.AddSongResult);
                 if (data.AddSongResult == "1") {
                     alert("Song Added");
-
+                    window.close = "addsong.html";
+                    setTimeout(function () { document.location.href = "prof.html", 500 });
                 }
                 else {
                     alert("Song not added");

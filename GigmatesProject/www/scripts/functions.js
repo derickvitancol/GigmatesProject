@@ -2,7 +2,7 @@
 
 //FUNCTION TO GET THE USER DATA FROM LOGIN
 function getUserData() {
-    var personInfo = JSON.parse(window.localStorage.getItem("userDetails"))
+    var personInfo = JSON.parse(window.localStorage.getItem("userDetails"));
 }
 
 
