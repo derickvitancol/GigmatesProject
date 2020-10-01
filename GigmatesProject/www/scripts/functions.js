@@ -7,7 +7,9 @@ function getUserData() {
 
 
 //FUNCTION TO GET THE MUSIC GENRE FOR THE SELECT TAG 
-function getGenres() {
+//SELECT BOX VALUE MUST BE document.getElementById(selectbox)
+function getGenres(selectBox)
+{
     var xhr = $.ajax({
         type: "POST",
         url: "http://localhost/GigmatesService/Service1.svc/GetGenreList",
@@ -16,7 +18,7 @@ function getGenres() {
 
     }).done(function (data) {
         var genreList = data.GetGenreListResult;
-        var genreSelect = document.getElementById("genreSelect");
+        var genreSelect = selectBox;
 
         var genreList = JSON.parse(data.GetGenreListResult);
         for (var i = 0; i < Object.keys(genreList).length; i++) {
@@ -44,8 +46,8 @@ function hasNumber(testStr)
 //CHECKS IF A STRING HAS SPECIAL CHARS  
 function hasSpecialChar(testStr)
 {
-    var reg = new RegExp("(!|@|#|$ |%|\^|&|\*|\(|\)");
-    return reg.test(testStr)
+
+    return /(\!|\ @|\#|\$ |%|\^|\&|\*|\(|\))/.test(testStr)
 }
 
 function hasLetter(testStr)
